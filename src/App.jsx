@@ -3,6 +3,8 @@ import { Container } from '@mui/material';
 import Searcher from "./components/Searcher";
 
 const App = () => {
+  const [ inputUser, setInputUser ] = React.useState('octocat');
+  // const [ userState, setUserState ] = useState('inputUser');
   return(
     <Container sx={{
       background: 'whiteSmoke',
@@ -15,7 +17,7 @@ const App = () => {
       alignItems: 'center',
 
     }}>
-      <Searcher></Searcher>
+      <Searcher inputUser={inputUser} setInputUser={setInputUser}></Searcher>
     </Container>
   )
 };
