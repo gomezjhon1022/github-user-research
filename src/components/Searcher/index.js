@@ -11,7 +11,6 @@ const Searcher = (props) => {
     const inputValue = event.target.value;
     setValueInput(inputValue);
   }
-  console.log(valueInput);
 
   const handleSubmit = () => {
     setInputUser(valueInput);
