@@ -8,10 +8,10 @@ const Description = (props) => {
   const { bio } = userState;
   return (
     <>
-      <Stack>
+      <Stack sx={{justifyContent:'center'}}>
         {bio !== null
-          ?<Typography>{bio}</Typography>
-          :<Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet quam eu diam egestas.</Typography>
+          ?<Typography variant="body1">{bio}</Typography>
+          :<Typography variant="body1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet quam eu diam egestas.</Typography>
         }
       </Stack>
       <PaperInformation userState={userState}/>

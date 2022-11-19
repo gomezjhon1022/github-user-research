@@ -31,7 +31,7 @@ const App = () => {
     <Container sx={{
       background: 'whiteSmoke',
       width: '80vw',
-      height: '500px',
+      height: '600px',
       borderRadius: '16px',
       marginTop: '40px',
       display: 'flex',
