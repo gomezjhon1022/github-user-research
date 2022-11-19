@@ -1,11 +1,11 @@
 import React from 'react';
-import { IconButton, Stack, TextField } from '@mui/material';
+import { IconButton, Stack, TextField, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 
 const Searcher = (props) => {
-  const { setInputUser } = props;
-  const [ valueInput, setValueInput ] = React.useState('');
+  const { setInputUser, notFound } = props;
+  const [ valueInput, setValueInput, ] = React.useState('');
 
   const onSearchValueChange = (event) => {
     const inputValue = event.target.value;
@@ -17,35 +17,46 @@ const Searcher = (props) => {
   }
 
   return(
-    <Stack
-      direction= 'row'
-      sx={{
-        marginTop: '30px',
-        width: '80%'
-      }}
-    >
-      <TextField
-        id="outlined-basic"
-        variant="outlined"
-        label="GitHub User"
-        placeholder="Buscar Usuario de GitHub"
-        size="small"
-        value={valueInput}
-        onChange={onSearchValueChange}
+    <>
+      <Stack
+        direction= 'row'
         sx={{
-          width: '90%',
-          }}
-      />
-      <IconButton
-        onClick={handleSubmit}
-        size="small"
-        sx={{
-        left: '-45px'
-      }}
+          marginTop: '30px',
+          width: '80%'
+        }}
       >
-        <SearchIcon />
-      </IconButton>
-    </Stack>
+        <TextField
+          id="outlined-basic"
+          variant="outlined"
+          label="GitHub User"
+          placeholder="Buscar Usuario de GitHub"
+          size="small"
+          value={valueInput}
+          onChange={onSearchValueChange}
+          sx={{
+            width: '90%',
+            }}
+        />
+        <IconButton
+          onClick={handleSubmit}
+          size="small"
+          sx={{
+          left: '-45px'
+        }}
+        >
+          <SearchIcon />
+        </IconButton>
+      </Stack>
+      <Typography
+        color='red'
+      >
+      {notFound
+        ?'Error: usuario no existe'
+        :''
+      }
+      </Typography>
+    </>
+
   )
 }
 

@@ -15,17 +15,19 @@ const App = () => {
       localStorage.setItem('octocat', userResponse)
     }
     if(userResponse.message === 'Not Found') {
-      const { octocat } = localStorage;
+      const { octocat }  =  localStorage;
       setInputUser(octocat);
-      setNotFound(true)
+      gettingUser('octocat');
+      setNotFound(true);
     } else {
       setUserState(userResponse);
     }
   }
-  console.log('userstate es', userState);
-
   useEffect(() => {
     gettingUser(inputUser)
+    if(userState !=='octocat') {
+      setNotFound(false);
+    }
   },[inputUser])
   return(
     <Container sx={{
@@ -39,7 +41,7 @@ const App = () => {
       alignItems: 'center',
 
     }}>
-      <Searcher inputUser={inputUser} setInputUser={setInputUser}></Searcher>
+      <Searcher inputUser={inputUser} setInputUser={setInputUser} notFound={notFound}></Searcher>
       <UserCard userState={userState} />
     </Container>
   )
